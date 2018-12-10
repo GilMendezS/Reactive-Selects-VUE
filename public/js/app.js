@@ -30,6 +30,20 @@ new Vue({
             .catch(err => {
                 console.log(err);
             })
+        },
+        onSubmit(){
+            const endpoint = '';
+            const data = {
+                city: this.city,
+                state: this.state
+            }
+            axios.post(endpoint, data)
+            .then(response => {
+                console.log(response.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
         }
     },
     computed: {

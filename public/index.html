@@ -9,17 +9,19 @@
 <body>  
     
     <div id="app">
-        <select name="" id="" v-model="state">
-            <option value="">State</option>
-            <option :value="s.id" v-for="s in states" :key="state.id">{{s.name}}</option>
-        </select>
-        <br><br>
-        <select name="" id="" v-model="city" :disabled="!state">
-            <option value="">City</option>
-            <option :value="c.id" v-for="c in filteredCities" :key="c.id">{{c.name}}</option>
-        </select>
-        <br><br>
-        <button :disabled="invalidForm">Continue</button>
+        <form @submit.prevent="onSubmit">
+            <select name="" id="" v-model="state">
+                <option value="">State</option>
+                <option :value="s.id" v-for="s in states" :key="state.id">{{s.name}}</option>
+            </select>
+            <br><br>
+            <select name="" id="" v-model="city" :disabled="!state">
+                <option value="">City</option>
+                <option :value="c.id" v-for="c in filteredCities" :key="c.id">{{c.name}}</option>
+            </select>
+            <br><br>
+            <button type="submit" :disabled="invalidForm">Continue</button>
+        </form>
     </div>
     <script src="https://vuejs.org/js/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
